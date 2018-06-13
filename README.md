@@ -23,6 +23,14 @@ Depends on: `log`
 ## log
 
 Very simple logging functionality, timestamping log messages & colour coding
-log level (warn, alert etc.). Linux only (& perhaps Mac, untested)
+log level (warn, alert etc.). Linux only (& perhaps Mac, untested). Works on
+Windows if using cmder.
 
 Depends on: none.
+
+## console
+
+Resizes console to fill terminal by default (removing reliance on COLUMNS &
+LINES env vars). Also provides functions to resize at run time.
+
+Depends on: `log`
