@@ -4,7 +4,7 @@ lvls:`err`wrn`inf`alt!("ERROR";"WARN";"INFO";"ALERT")                           
 lvls:max[count@'.lg.lvls]$.lg.lvls                                                  //pad all to max length
 
 col:`err`wrn`inf`alt!31 33 0 34                                                     //define colours for each log level
-cf:@[{system x;1b};"tty 2>NUL";0b]                                                  //flag for if colours should be used
+cf:.os.test"tty"                                                                    //flag for if colours should be used
 
 lg:{[lvl;msg]
   -1 $[cf;"\033[G";""],"[ ",string[.z.Z]," ] ",                                     //timestamp

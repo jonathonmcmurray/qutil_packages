@@ -1,7 +1,8 @@
 /dependencies
 .utl.require"log"
+.utl.require"os"
 
 /package code
-if[@[{system x;1b};"tput cols 2>NUL";0b];        //only load code if tput is available
+if[.os.test"tput cols";                          //only load code if tput is available
    .utl.pkg"size.q";
   ]
