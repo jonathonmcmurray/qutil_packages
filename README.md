@@ -41,3 +41,9 @@ OS related utilities, so far this includes testing if a command works on
 current OS (e.g. to check if `tty` works for `log` package)
 
 Depends on: none.
+
+## json
+
+Provides JSON functions for kdb+ <= v3.1, using `json.k` from kx
+
+Depends on: none.
