@@ -28,6 +28,7 @@ w:();
 .z.ws:{x;}                                                                          //do nothing with WebSocket messages
 
 refresh:{neg[w]@\:"";}                                                              //tell clients to refresh (via WebSockets)
+publish:{.serve.body:x;refresh[]}                                                   //publish a page, overwriting existing
 
 \d .
 
