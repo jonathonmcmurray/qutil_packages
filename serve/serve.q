@@ -24,7 +24,7 @@ headcss:{addhead .h.htac[`style;(enlist`type)!enlist"text/css"]"@import '",x,"'"
 
 w:();
 .z.wo:{w,:.z.w}                                                                     //record WebSocket connections
-.z.wc:{w except x}                                                                  //record ws connections closing
+.z.wc:{w:w except x}                                                                //record ws connections closing
 .z.ws:{x;}                                                                          //do nothing with WebSocket messages
 
 refresh:{neg[w]@\:"";}                                                              //tell clients to refresh (via WebSockets)
