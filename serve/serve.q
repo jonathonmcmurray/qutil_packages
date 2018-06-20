@@ -1,6 +1,7 @@
 \d .serve
 
-HOSTNAME:@[value;`.serve.HOSTNAME;"localhost"]                                      //default to localhost if not set prior to pkg load
+HOSTNAME:@[value;`.serve.HOSTNAME;getenv`HOSTNAME];                                 //default to HOSTNAME env var if not set prior to pkg load
+if[0=count HOSTNAME;HOSTNAME:"localhost"];                                          //default to localhost if not set elsewhere
 
 head:""
 body:"No content yet..."
@@ -24,7 +25,7 @@ headcss:{addhead .h.htac[`style;(enlist`type)!enlist"text/css"]"@import '",x,"'"
 
 w:();
 .z.wo:{w,:.z.w}                                                                     //record WebSocket connections
-.z.wc:{w:w except x}                                                                //record ws connections closing
+.z.wc:{.serve.w:w except x}                                                         //record ws connections closing
 .z.ws:{x;}                                                                          //do nothing with WebSocket messages
 
 refresh:{neg[w]@\:"";}                                                              //tell clients to refresh (via WebSockets)
