@@ -3,7 +3,8 @@
 getmaxsize:{[]
   cb:.wapi.alloc `CONSOLE_SCREEN_BUFFER_INFO;
    h:.ffi.cf[("j";`kernel32`GetStdHandle)](-11h;(::));
-   .ffi.cf[("i";`kernel32`GetConsoleScreenBufferInfo)](h;cb);
+   r:.ffi.cf[("i";`kernel32`GetConsoleScreenBufferInfo)](h;cb);
+   if[r=0;'"GetConsoleScreenBufferInfo failed"];
    cb:.wapi.allint .wapi.struct[`CONSOLE_SCREEN_BUFFER_INFO;cb];
    :1+(-).'cb[`srWindow](`BOTTOM`TOP;`RIGHT`LEFT);
  }
