@@ -65,3 +65,9 @@ Depends on: none.
 Provides JSON functions for kdb+ <= v3.1, using `json.k` from kx
 
 Depends on: none.
+
+## timer
+
+Timer functionality to extend the basic capabilities of `.z.ts`
+
+Depends on: none.
