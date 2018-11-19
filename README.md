@@ -70,4 +70,10 @@ Depends on: none.
 
 Timer functionality to extend the basic capabilities of `.z.ts`
 
-Depends on: none.
+Depends on: `log`,`os`
+
+## expect
+
+Functionality to check a set of expectation based on current time, alerting when conditions are not met within set time
+
+Depends on: `timer`,`log`,`os`
