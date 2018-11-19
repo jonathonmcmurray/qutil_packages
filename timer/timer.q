@@ -47,3 +47,4 @@ disable:{enable 0}
 \d .
 
 .z.ts:{.timer.run .z.P}                                                             //run timer with local time
+if[0=system"t";.timer.enable 00:00:00.200];                                         //if no system timer, set to 200ms
