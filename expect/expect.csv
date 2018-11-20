@@ -1,3 +1,4 @@
 id,test,green,orange,red
 eg1,value[`..a]=15,20:35,20:40,20:45
 eg2,value[`..b]=20,20:37,20:41,20:42
+log,.expect.inlog[`:example.log;"*Process Complete*"],21:40,21:42,21:44
