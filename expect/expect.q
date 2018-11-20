@@ -8,15 +8,18 @@ check:{[]
   a:select from ations where passed,not ag;
   alert[`GREEN] each a`id;
   update ag:1b from `.expect.ations where passed,not ag;
-  a:select from ations where not passed,not ao,orange>.z.P;
-  alert[`ORANGE] each a`id;
-  update ao:1b from `.expect.ations where not passed,not ao,orange>.z.P;
-  a:select from ations where not passed,not ar,red>.z.P;
+  a:select from ations where not passed,not ar,red<.z.P;
   alert[`RED] each a`id;
-  update ar:1b from `.expect.ations where not passed,not ar,red>.z.P;
+  update ao:1b,ar:1b from `.expect.ations where not passed,not ar,red<.z.P;
+  a:select from ations where not passed,not ao,orange<.z.P;
+  alert[`ORANGE] each a`id;
+  update ao:1b from `.expect.ations where not passed,not ao,orange<.z.P;
  }
 
-alert:{[x;y] .lg.o " | "sv string x,y}
+al:`RED`ORANGE`GREEN!`e`w`o
+alert:{[x;y] .lg[al x] " | "sv string x,y}
+
+inlog:{any read0[hsym x]like\:y}
 
 \d .
 
