@@ -31,6 +31,11 @@ w:();
 refresh:{neg[w]@\:"";}                                                              //tell clients to refresh (via WebSockets)
 publish:{.serve.body:x;refresh[]}                                                   //publish a page, overwriting existing
 
+/* HTML building utilities */
+
+el:{.h.htc[x] each $[10=type y;;string]y}                                           //elements for tables
+table:{.h.htc[`table]raze .h.htc[`tr]each raze(enlist raze el[`th] cols x;raze each el[`td] each value each x)} //build table
+
 \d .
 
 .port.printhttp .serve.HOSTNAME;                                                    //output HTTP URL for hosting
