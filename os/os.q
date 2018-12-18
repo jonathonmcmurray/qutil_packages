@@ -9,4 +9,7 @@ test:{[x]
 home:hsym`$getenv$[.z.o like "w*";`USERPROFILE;`HOME]                               //get home dir depending on OS
 hfile:(` sv home,)                                                                  //get file path relative to home dir
 
+read:{$[1=count a;first;]a:read0 x}                                                 //read text file, single string if one line
+write:{x 0:$[10=type y;enlist;]y}                                                   //write text file, list of strings or single
+
 \d .
