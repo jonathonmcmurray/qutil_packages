@@ -12,4 +12,7 @@ hfile:(` sv home,)                                                              
 read:{$[1=count a;first;]a:read0 x}                                                 //read text file, single string if one line
 write:{x 0:$[10=type y;enlist;]y}                                                   //write text file, list of strings or single
 
+hread:{read hfile x}                                                                //read file from home dir
+hwrite:{write[hfile x;y]}                                                           //write file in home dir
+
 \d .
