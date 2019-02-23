@@ -35,6 +35,7 @@ publish:{.serve.body:x;refresh[]}                                               
 
 el:{.h.htc[x]each 1_@[(::),y;where 10<>type each (::),y;string]}                    //elements for tables
 table:{.h.htc[`table]raze .h.htc[`tr]each raze(enlist raze el[`th] cols x;raze each el[`td] each value each x)} //build table
+b64img:{"<img src=\"data:image/png;base64,",x,"\" >"}                               //embed a base64 PNG
 
 \d .
 
