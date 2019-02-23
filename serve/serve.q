@@ -9,7 +9,7 @@ body:"No content yet..."
 addhead:{head,:x}
 addbody:{body,:x}
 
-headjs:{addhead .h.htac[`script;`type`src!("text/javascript";x)]""}
+headjs:{addhead .h.hta[`script;`type`src!("text/javascript";x)]}
 headcss:{addhead .h.htac[`style;(enlist`type)!enlist"text/css"]"@import '",x,"'"}
 
 / serve resultant chart over HTTP
