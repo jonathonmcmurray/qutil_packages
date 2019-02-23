@@ -16,7 +16,7 @@ headcss:{addhead .h.htac[`style;(enlist`type)!enlist"text/css"]"@import '",x,"'"
 .h.HOME:"html"                                                                      //set .h.HOME for finding CSS & JS
 .h.ty:.h.ty,\:"; charset=utf-8";                                                    //set character set for everything
 .z.ph:{
-  ws:.h.htc[`script]"var ws=new WebSocket(\"ws://",HOSTNAME,":",string[system"p"],"\");ws.onmessage = function(event) { window.location.reload(true) };";
+  ws:.h.htc[`script]"var ws=new WebSocket(\"ws://",HOSTNAME,":",string[system"p"],"\");ws.onmessage = function(event) { document.body.innerHTML = event.data };";
   x:.h.uh$[type x;x;first x];                                                       //unescape characters
   :$[count r:@[read1;hsym p:`$.h.HOME,"/",x;""];                                    //attempt to read file
     .h.hy[`$(1+x?".")_x]"c"$r;                                                      //if file exists, return it's contents
@@ -28,7 +28,7 @@ w:();
 .z.wc:{.serve.w:w except x}                                                         //record ws connections closing
 .z.ws:{x;}                                                                          //do nothing with WebSocket messages
 
-refresh:{neg[w]@\:"";}                                                              //tell clients to refresh (via WebSockets)
+refresh:{neg[w]@\:body;}                                                            //tell clients to refresh (via WebSockets)
 publish:{.serve.body:x;refresh[]}                                                   //publish a page, overwriting existing
 
 /* HTML building utilities */
