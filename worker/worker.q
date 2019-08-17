@@ -17,21 +17,21 @@ prereq:()!()                                                                    
 .worker.set:{[c;x;y] /c:class,x:variable;y:value
   wk:$[c=`;.worker.workers;select from .worker.workers where class in c];
   if[count wk;
-     wk[`handle]@\:(set;x;y)];                                                                       //set on existant workers
+     neg[wk`handle]@\:(set;x;y)];                                                                    //set on existant workers
   preset[c],:enlist(x;y);                                                                            //queue for future workers
  }
 
 .worker.run:{[c;x] /c:class,x:string to run
   wk:$[c=`;.worker.workers;select from .worker.workers where class in c];
   if[count wk;
-     wk[`handle]@\:(value;x)];                                                                       //run on existant workers
+     neg[wk`handle]@\:(value;x)];                                                                    //run on existant workers
   prerun[c],:enlist x;                                                                               //queue for future workers
  }
 
 .worker.require:{[c;x] /c:class,x:package
   wk:$[c=`;.worker.workers;select from .worker.workers where class in c];
   if[count wk;
-     wk[`handle]@\:(`.utl.require;x)];                                                               //require on existant workers
+     neg[wk`handle]@\:(`.utl.require;x)];                                                            //require on existant workers
   prereq[c],:enlist x;                                                                               //queue for future workers
  }
 
